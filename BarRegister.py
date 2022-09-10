@@ -12,6 +12,7 @@ import time
 from decouple import config
 
 databaseconn = config('DATABASE_URL')
+databaseconn = databaseconn.replace("postgres://", "postgresql://")
 
 app = Flask(__name__)
 
