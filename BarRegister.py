@@ -12,12 +12,11 @@ import time
 from decouple import config
 
 databaseconn = config('DATABASE_URL')
-postgresconn = config('POSTGRES')
 
 app = Flask(__name__)
 
 Base = declarative_base()
-DATABASE_URI = postgresconn+databaseconn
+DATABASE_URI = databaseconn
 herokupgsqlengine = create_engine(DATABASE_URI)
 Session = sessionmaker(herokupgsqlengine)  
 session = Session()
