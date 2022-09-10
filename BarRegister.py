@@ -16,7 +16,7 @@ databaseconn = config('DATABASE_URL')
 app = Flask(__name__)
 
 Base = declarative_base()
-DATABASE_URI = databaseconn
+DATABASE_URI = "postgresql+"+databaseconn
 herokupgsqlengine = create_engine(DATABASE_URI)
 Session = sessionmaker(herokupgsqlengine)  
 session = Session()
