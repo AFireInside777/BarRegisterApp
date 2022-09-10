@@ -96,6 +96,14 @@ def insertdata(): #this will insert data into both classes
 
     return "Received the package, mate."
 
+@app.route('/firstcount', methods = ['GET'])
+def getordercount():
+    orders = session.query(Orders).all()
+    for order in orders:
+        orderlist.append([order.date, order.ordernum, order.cashorcardnum, order.expdate, order.total])
+    newordernumber = len(orderlist)
+    return jsonify(newordernumber)
+
 @app.route('/orderlistandcount', methods = ['GET'])
 def getallorders():
     orders = session.query(Orders).all()

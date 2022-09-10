@@ -1,8 +1,25 @@
-//function to discount price by percentage
+//future function to discount price by percentage
 //Add function for putting current orders as pending.
 //Customer Database
 //make Javascript accept integers with 0 as first digit for credit card info.
 //Make a function for how to calculate new inventory
+var newordernumber = 0
+
+function setordernumber(startcount){
+    newordernumber = startcount 
+}
+
+$.ajax({
+    url: '/firstcount',
+    type: 'GET',
+    dataType: "json",
+    success: function(response){
+        setordernumber(response)              
+    },
+    error: function(error){
+        alert("Something went wrong the server: " + error);
+    }
+})
 
 var newordernumber = 0//This data will come from count in database
 var pendingorders = [] //Make sure you show the Order ID in the buttons
