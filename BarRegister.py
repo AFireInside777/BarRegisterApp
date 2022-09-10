@@ -114,4 +114,4 @@ def getallorders():
     return jsonify(infobuffet)
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT', '5000')) #This line is specifically for launching on Heroku.
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', '5432')) #This line is specifically for launching on Heroku.
