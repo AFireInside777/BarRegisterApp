@@ -13,6 +13,7 @@ I coded this project in order to get familiar with Heroku and to understand how 
 ### Built With
 This project was made with
 Flask: https://flask.palletsprojects.com/en/2.2.x/
+
 JQuery: https://jquery.com/download/ - I used ajax requests to the BarRegister.py server for order entering and retrieval.
 I am using a Postgresql database on Heroku and SQLAlchemy in the Python file to query the database.
 
