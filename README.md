@@ -30,3 +30,5 @@ You may click the buttons in the Drink List to add them to your current order. T
 Click on the quantity or price of your drink in order to change them. These are connected to the ModifyQtyDrink() and ModifyPriceDrink() class methods.
 
 Click the "FINALIZE ORDER" button to send your order to the database. This is connected to the FinalizeOrder() function, which sends the currentorder class object through an ajax request to be sent to the Postgresql database, to the Orders and ItemsForDrinks classes.. A Flask view then returns all current orders in the database, which is displayed in the "FINALIZED ORDERS" box.
+
+This is a first draft of the project which I will continue to add to and update over the course of time.
