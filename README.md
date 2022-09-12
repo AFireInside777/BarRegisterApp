@@ -8,7 +8,9 @@ A simple app to use for processing drink orders at a bar.
 ## Overview
  ![BarRegisterScreen](https://user-images.githubusercontent.com/49132327/189694095-abb93f9d-7293-4a78-aaef-5d90dc50827b.PNG)
 
-I coded this project in order to get familiar with Heroku and to understand how relational databases work. Learning about the files needed for running a Heroku app was a bit of a journey but definitely worthwhile to learn. I've also learned how to make and work in a virtual environment, which I've come to love working with. I strongly recommend making a virtual environment first before running the project and downloading all dependencies in the requirements.txt. This can be done in the command line by changing directory ("cd") to the directory of your virtualenv and entering "pip install -r requirements.txt".
+I coded this project in order to get familiar with Heroku and to understand how relational databases work. Learning about the files needed for running a Heroku app was a bit of a journey but definitely worthwhile to learn. I've also learned how to make and work in a virtual environment, which I've come to love working with. 
+
+I strongly recommend making a virtual environment first before running the project and downloading all dependencies in the requirements.txt. This can be done in the command line by changing directory ("cd") to the directory of your virtualenv and entering "pip install -r requirements.txt".
 
 ### Built With
 This project was made with
