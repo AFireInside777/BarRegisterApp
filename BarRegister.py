@@ -45,7 +45,7 @@ class ItemsForOrders(Base):
     ordernum = Column(Integer, ForeignKey("drinkorders.ordernum"))
     drinkdate = Column(String, nullable = False)
     drink = Column(String, nullable = False)
-    drinkprice = Column(Integer, nullable=False)
+    drinkprice = Column(Float, nullable=False)
     qty = Column(Integer, nullable=False)
     subtotal = Column(Integer, nullable=False)
     orderprocessedtime = Column(String, nullable=True)

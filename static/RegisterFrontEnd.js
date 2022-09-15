@@ -3,6 +3,22 @@
 //Customer Database
 //make Javascript accept integers with 0 as first digit for credit card info.
 //Make a function for how to calculate new inventory
+
+// function SaveToPending(ordertopending){///////////Will add later
+//     pendingorders.push(ordertopending)
+//     currentorder = null
+//     //Also put returning message that there's no current order.
+// }
+
+// function PendingtoCurrent(OrderIDNum){
+//     //search for ID num in for loop
+//     //send order array to currentorder
+//     for (order in pendingorders){
+//         if (pendingorders[order].ordernum == OrderIDNum){
+//             currentorder = pendingorders[order]
+//         }
+//     }
+// }
 var newordernumber = 0
 
 function setordernumber(startcount){
@@ -61,7 +77,7 @@ const DrinkList = {
 
 function getdate(){
     currentdate =  new Date();//Wrong Date is currently printing
-    currentdate = (currentdate.getMonth() + "-" + currentdate.getDate() + "-" + currentdate.getFullYear())
+    currentdate = ((currentdate.getMonth()+1) + "-" + currentdate.getDate() + "-" + currentdate.getFullYear())
     newordernumber += 1
     dateandorder = [currentdate, newordernumber]
     return dateandorder
@@ -70,7 +86,6 @@ function getdate(){
  function getajaxinfo(result){
     let oldorder
     let paytext
-    console.log(result[0])
 
     finalorderview.innerHTML = " "
     drawfinalizedheaders()
@@ -235,20 +250,6 @@ class NewOrder {
                 alert(error);
             }
         });
-
-        $.ajax({
-            url: '/orderlistandcount',
-            type: 'GET',
-            dataType: "json",
-            success: function(response){
-                let finalorders = JSON.stringify(response)
-                finalorders = JSON.parse(finalorders)
-                getajaxinfo(finalorders)                
-            },
-            error: function(error){
-                alert("Something went wrong the server: " + error);
-            }
-        })
     } 
 }
 
@@ -256,21 +257,6 @@ function AddNewOrder(){
     currentorder = new NewOrder()
 }
 
-function SaveToPending(ordertopending){///////////Will add later
-    pendingorders.push(ordertopending)
-    currentorder = null
-    //Also put returning message that there's no current order.
-}
-
-function PendingtoCurrent(OrderIDNum){
-    //search for ID num in for loop
-    //send order array to currentorder
-    for (order in pendingorders){
-        if (pendingorders[order].ordernum == OrderIDNum){
-            currentorder = pendingorders[order]
-        }
-    }
-}
 
 function DeleteDrink(drink){
     var CheckLoop
@@ -282,6 +268,24 @@ function DeleteDrink(drink){
         }
     }
     currentorder.RunNewTotal()
+}
+
+
+function OrderListandCount(){
+
+    $.ajax({
+        url: '/orderlistandcount',
+        type: 'GET',
+        dataType: "json",
+        success: function(response){
+            let finalorders = JSON.stringify(response)
+            finalorders = JSON.parse(finalorders)
+            getajaxinfo(finalorders)                
+        },
+        error: function(error){
+            alert("Something went wrong the server: " + error);
+        }
+    })
 }
 //==================================FRONT END=================================================
 
@@ -736,6 +740,7 @@ finalize.addEventListener("click", function(){
     let cardcash = prompt("Please enter the Credit Card or Cash Info below (last four digits or '1111' for Cash.")
     let expiredate = prompt("Please enter the expdate of the card or Cash Info (last four digits or '1111' for Cash.")
     currentorder.FinalizeOrder(cardcash, expiredate)
+    OrderListandCount()
 
 
 
